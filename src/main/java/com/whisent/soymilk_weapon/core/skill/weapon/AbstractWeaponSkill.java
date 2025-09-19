@@ -2,22 +2,26 @@ package com.whisent.soymilk_weapon.core.skill.weapon;
 
 import com.goldkl.soymilk.tracking.ForgeEventTracker;
 import com.whisent.soymilk_weapon.effect.SWMobEffects;
+import com.whisent.soymilk_weapon.item.weapon.AbstractWeaponItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public abstract class AbstractWeaponSkill {
     public Player player;
+    public AbstractWeaponItem item;
     protected int animTickCounter = 0;
     protected int skillTickCounter = 0;
 
 
-    public AbstractWeaponSkill(Player player) {
+    public AbstractWeaponSkill(Player player, AbstractWeaponItem item) {
         this.player = player;
+        this.item = item;
     }
     
     public abstract int getAnimTime();
     public abstract int getSkillTime();
-    public abstract int getSkillCost();
     
     // 技能释放入口
     public void cast() {
@@ -28,7 +32,7 @@ public abstract class AbstractWeaponSkill {
         if (!isAnimFinished()) {
             animTickCounter++;
             if (animTickCounter == 1) {
-                ForgeEventTracker.addPlayerSkillEnergy(player,-getSkillCost());
+                ForgeEventTracker.addPlayerSkillEnergy(player,-item.getNeedenergy());
                 player.addEffect(
                 new MobEffectInstance(SWMobEffects.IMMOBILITY.get(),
                 20,1,false,false));

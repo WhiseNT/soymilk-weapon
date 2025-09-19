@@ -4,16 +4,18 @@ import cn.anecansaitin.cameraanim.common.GlobalCameraSavedData;
 import cn.anecansaitin.cameraanim.common.animation.GlobalCameraPath;
 import cn.anecansaitin.cameraanim.common.network.ServerPayloadSender;
 import com.goldkl.soymilk.tracking.ForgeEventTracker;
+import com.whisent.soymilk_weapon.item.weapon.AbstractWeaponItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class SupremeArtSkill extends AbstractWeaponSkill{
 
-
-    public SupremeArtSkill(Player player) {
-        super(player);
+    public SupremeArtSkill(Player player, AbstractWeaponItem item) {
+        super(player, item);
     }
 
     @Override
@@ -24,11 +26,6 @@ public class SupremeArtSkill extends AbstractWeaponSkill{
     @Override
     public int getSkillTime() {
         return 10;
-    }
-
-    @Override
-    public int getSkillCost() {
-        return 4;
     }
 
     @Override

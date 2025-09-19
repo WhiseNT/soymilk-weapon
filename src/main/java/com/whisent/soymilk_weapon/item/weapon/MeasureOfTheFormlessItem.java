@@ -22,7 +22,7 @@ public class MeasureOfTheFormlessItem extends AbstractWeaponItem {
     @Override
     public void skill(Player player) {
         super.skill(player);
-        new SupremeArtSkill(player);
+        new SupremeArtSkill(player,this);
     }
 
     @Override

@@ -43,7 +43,7 @@ public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeapo
     }
 
     public void skill(Player player) {
-        SkillManager.startSkill(player, new SupremeArtSkill(player));
+        SkillManager.startSkill(player, new SupremeArtSkill(player,this));
     }
 
     @Override
