@@ -15,14 +15,14 @@ public class AbstractWeaponItemModel extends GeoModel<AbstractWeaponItem> {
 
     @Override
     public ResourceLocation getTextureResource(AbstractWeaponItem abstractWeaponItem) {
-        return ResourceLocation.fromNamespaceAndPath(Soymilk_weapon.MODID,
+        return new ResourceLocation(Soymilk_weapon.MODID,
                 "textures/item/" + abstractWeaponItem.getId() + ".png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(AbstractWeaponItem abstractWeaponItem) {
         return ResourceLocation.fromNamespaceAndPath(Soymilk_weapon.MODID,
-                abstractWeaponItem.getId());
+                "animations/item/" + abstractWeaponItem.getId() + ".animation.json");
     }
 
 }

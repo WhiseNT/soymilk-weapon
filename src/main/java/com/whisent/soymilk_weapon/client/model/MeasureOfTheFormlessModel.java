@@ -23,6 +23,6 @@ public class MeasureOfTheFormlessModel extends GeoModel<MeasureOfTheFormlessItem
     @Override
     public ResourceLocation getAnimationResource(MeasureOfTheFormlessItem measureOfTheFormlessItem) {
         return ResourceLocation.fromNamespaceAndPath(Soymilk_weapon.MODID,
-                "measure_of_the_formless");
+                "animations/item/measure_of_the_formless.animation.json");
     }
 }

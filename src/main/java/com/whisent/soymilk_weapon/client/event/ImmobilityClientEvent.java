@@ -1,10 +1,13 @@
 package com.whisent.soymilk_weapon.client.event;
 
 import com.whisent.soymilk_weapon.Soymilk_weapon;
+import com.whisent.soymilk_weapon.client.NonPausingScreen;
 import com.whisent.soymilk_weapon.effect.ImmobilityEffect;
 import com.whisent.soymilk_weapon.effect.SWMobEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -27,6 +30,7 @@ public class ImmobilityClientEvent {
         Player player = event.getEntity();
         // 如果玩家有ImmobilityEffect效果，则限制其移动
         if (player.hasEffect(SWMobEffects.IMMOBILITY.get())) {
+            Minecraft.getInstance().setScreen(new NonPausingScreen());
             // 禁止移动
             event.getInput().forwardImpulse = 0;
             event.getInput().leftImpulse = 0;
@@ -38,7 +42,7 @@ public class ImmobilityClientEvent {
             if (mc.player == player) {
                 if (!isLocked) {
                     // 首次锁定，保存当前视角
-                    lockedYaw = player.getYRot();
+                    lockedYaw = player.yBodyRot;
                     lockedPitch = player.getXRot();
                     lockedY = player.getY();
                     isLocked = true;
@@ -52,7 +56,9 @@ public class ImmobilityClientEvent {
                 player.xRotO = lockedPitch;
             }
         } else {
-            // 没有效果时解锁
+            if (Minecraft.getInstance().screen instanceof NonPausingScreen) {
+                Minecraft.getInstance().setScreen(null);
+            }
             isLocked = false;
         }
     }
@@ -64,6 +70,7 @@ public class ImmobilityClientEvent {
         if (player == null) return;
         if (Minecraft.getInstance().screen == null &&
                 player.hasEffect(SWMobEffects.IMMOBILITY.get())) {
+            player.sendSystemMessage(Component.literal("请勿使用鼠标进行操作"));
             event.setCanceled(true);
         }
     }

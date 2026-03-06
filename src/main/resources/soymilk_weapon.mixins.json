@@ -2,18 +2,20 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.whisent.soymilk_weapon.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "soymilk_weapon.refmap.json",
   "mixins": [
+    "AbstractArrowMixin",
+    "DisplayMixin",
+    "EntityMixin",
     "LivingEntityMixin",
-    "PlayerMixin"
+    "PlayerMixin",
+    "S2CPayloadReplyMixin",
+    "ServerPayloadSenderMixin"
   ],
   "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "overwrites": {
-    "requireAnnotations": true
-  }
+    "GuiMixin",
+    "LocalPlayerMixin",
+    "MobEffectRendererMixin"
+  ]
 }

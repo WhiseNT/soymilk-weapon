@@ -41,7 +41,7 @@ public class SkillManager {
     }
     
     /**
-     * 检查玩家是否正在执行技能
+     * 检查玩家是否正在执行技能（包括播放动画阶段和技能持续阶段）
      * @param player 玩家
      * @return 是否正在执行技能
      */

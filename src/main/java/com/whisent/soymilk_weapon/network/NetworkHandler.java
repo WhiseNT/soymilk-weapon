@@ -20,10 +20,15 @@ public class NetworkHandler {
                 .simpleChannel();
         
         int id = 0;
-        CHANNEL.registerMessage(id++, SkillConsumePacket.class, 
+        CHANNEL.registerMessage(id, SkillConsumePacket.class,
                 SkillConsumePacket::encode, 
                 SkillConsumePacket::decode, 
                 SkillConsumePacket::handle);
+        CHANNEL.registerMessage(id+1, SpecialConsumePacket.class,
+                SpecialConsumePacket::encode,
+                SpecialConsumePacket::decode,
+                SpecialConsumePacket::handle
+                );
     }
     
     public static void sendToServer(Object msg) {

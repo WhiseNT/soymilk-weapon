@@ -2,8 +2,10 @@ package com.whisent.soymilk_weapon.mixin;
 
 import com.goldkl.soymilk.item.SkillWeaponItem;
 import com.goldkl.soymilk.tracking.ForgeEventTracker;
+import com.whisent.soymilk_weapon.api.EnergyHelper;
 import com.whisent.soymilk_weapon.core.skill.weapon.SkillManager;
 import com.whisent.soymilk_weapon.effect.SWMobEffects;
+import net.bettercombat.BetterCombat;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -26,8 +28,10 @@ public class PlayerMixin {
         thiz().sendSystemMessage(Component.literal("onPlayerAttack"));
         ItemStack stack = thiz().getMainHandItem();
         if (thiz().getMainHandItem().getItem() instanceof SkillWeaponItem weaponItem ) {
-            ForgeEventTracker.addPlayerSkillEnergy(thiz(),weaponItem.getEfficiency());
-            canGetEnegry = false;
+            if (!EnergyHelper.getOnSpecial(thiz())) {
+                ForgeEventTracker.addPlayerSkillEnergy(thiz(),weaponItem.getEfficiency());
+                canGetEnegry = false;
+            }
         }
     }
 
@@ -36,7 +40,7 @@ public class PlayerMixin {
         if (thiz().level().isClientSide) return;
         canGetEnegry = true;
         // 更新技能状态
-        SkillManager.updateSkills(thiz());
+
 
     }
     @Inject(method = "isInvulnerableTo",at = @At("HEAD"), cancellable = true)

@@ -3,6 +3,8 @@ package com.whisent.soymilk_weapon.event;
 import com.goldkl.soymilk.item.SkillWeaponItem;
 import com.goldkl.soymilk.tracking.ForgeEventTracker;
 import com.whisent.soymilk_weapon.Soymilk_weapon;
+import com.whisent.soymilk_weapon.api.EnergyHelper;
+import com.whisent.soymilk_weapon.core.skill.weapon.SkillManager;
 import com.whisent.soymilk_weapon.item.SWWeapons;
 import com.whisent.soymilk_weapon.item.weapon.AbstractWeaponItem;
 import net.minecraft.network.chat.Component;
@@ -34,5 +36,15 @@ public class ServerEventHandler {
             event.getEntity().stopUsingItem();
             event.setCanceled(true);
         }
+    }
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        Player player = event.player;
+        if (!player.level().isClientSide) {
+
+            SkillManager.updateSkills(player);
+        }
+
+
     }
 }

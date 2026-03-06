@@ -10,6 +10,7 @@ import com.whisent.soymilk_weapon.client.renderer.AbstractWeaponItemRenderer;
 import com.whisent.soymilk_weapon.core.skill.weapon.SkillManager;
 import com.whisent.soymilk_weapon.core.skill.weapon.SupremeArtSkill;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,8 +22,12 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
@@ -30,10 +35,12 @@ import java.util.function.Consumer;
 public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeaponItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
+
     protected final String id = "abstract_weapon";
     public AbstractWeaponItem( Properties properties, int damage, float attack_speed) {
         super(Tiers.IRON,damage,attack_speed,properties);
-
+        // 注册为可同步动画对象
+        SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
     public void castSkill(Player player) {
@@ -43,7 +50,7 @@ public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeapo
     }
 
     public void skill(Player player) {
-        SkillManager.startSkill(player, new SupremeArtSkill(player,this));
+
     }
 
     @Override
@@ -55,9 +62,10 @@ public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeapo
     public boolean canUseSkill(Player player) {
         if (EnergyHelper.getPlayerEnergy(player) >= getNeedenergy()) {
             return true;
-        } else {
-            return false;
+        } else if (EnergyHelper.getOnSpecial(player)) {
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -89,7 +97,9 @@ public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeapo
         if(!this.canUseSkill(player)){
             return InteractionResultHolder.fail(itemstack);
         }
-        return InteractionResultHolder.fail(itemstack);
+        // 允许主手使用物品并开始使用动画
+        player.startUsingItem(hand);
+        return InteractionResultHolder.consume(itemstack);
     }
 
 
