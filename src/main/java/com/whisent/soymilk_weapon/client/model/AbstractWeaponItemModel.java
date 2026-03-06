@@ -4,7 +4,9 @@ import com.whisent.soymilk_weapon.Soymilk_weapon;
 import com.whisent.soymilk_weapon.item.weapon.AbstractWeaponItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
-
+/**
+ * 没用
+ */
 public class AbstractWeaponItemModel extends GeoModel<AbstractWeaponItem> {
 
     @Override

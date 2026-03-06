@@ -10,7 +10,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
-
+/**
+ * 没用。
+ */
 @Mixin(value = S2CPayloadReply.class,remap = false)
 public class S2CPayloadReplyMixin {
     @Inject(method = "handle", at = @At("RETURN"))

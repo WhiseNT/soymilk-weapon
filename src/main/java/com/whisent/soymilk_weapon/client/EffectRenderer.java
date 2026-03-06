@@ -16,7 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
-
+/**
+ * 处理Effect渲染的类，有用。
+ */
 public class EffectRenderer {
     // 存储每个效果实例的初始持续时间
     private static final Map<Integer, Integer> INITIAL_DURATIONS = new HashMap<>();

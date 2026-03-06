@@ -7,7 +7,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.TickEvent;
 
-
+/**
+ * 没用。
+ */
 public class CameraHelper {
     public static void playCameraAnimation(String id, ServerPlayer player) {
         GlobalCameraSavedData data = GlobalCameraSavedData.getData((ServerLevel)player.level());

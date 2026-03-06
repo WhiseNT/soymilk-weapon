@@ -10,7 +10,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import software.bernie.geckolib.animatable.GeoItem;
-
+/**
+ * 没用
+ */
 @Mixin(Display.ItemDisplay.class)
 public class DisplayMixin {
 

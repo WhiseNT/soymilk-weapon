@@ -31,6 +31,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import org.lwjgl.glfw.GLFW;
 
+/*
+* 这个类是监听玩家按键以释放技能和进入必杀状态的类。
+* */
 @Mod.EventBusSubscriber(modid = Soymilk_weapon.MODID,value = { Dist.CLIENT })
 public class KeybindingEvent {
     public static final KeyMapping SKILL =

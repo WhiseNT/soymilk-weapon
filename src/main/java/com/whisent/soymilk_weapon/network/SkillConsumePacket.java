@@ -12,7 +12,9 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
-
+/**
+ * 没用。
+ */
 public class SkillConsumePacket {
     public void encode(FriendlyByteBuf buf) {
         // 该数据包不需要编码任何数据

@@ -4,7 +4,9 @@ import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * 没用
+ */
 public class SkillManager {
     // 存储每个玩家当前正在执行的技能
     private static final Map<Player, AbstractWeaponSkill> ACTIVE_SKILLS = new HashMap<>();

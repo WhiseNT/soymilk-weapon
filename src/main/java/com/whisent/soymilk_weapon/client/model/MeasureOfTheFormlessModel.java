@@ -5,7 +5,9 @@ import com.whisent.soymilk_weapon.item.weapon.AbstractWeaponItem;
 import com.whisent.soymilk_weapon.item.weapon.MeasureOfTheFormlessItem;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
-
+/**
+ * 没用
+ */
 public class MeasureOfTheFormlessModel extends GeoModel<MeasureOfTheFormlessItem> {
 
     @Override

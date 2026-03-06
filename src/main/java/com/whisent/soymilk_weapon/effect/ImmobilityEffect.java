@@ -13,7 +13,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
 import org.jetbrains.annotations.Nullable;
-
+/**
+ * 没用
+ */
 public class ImmobilityEffect extends MobEffect {
 
     // 重力影响减少的修饰符UUID

@@ -9,7 +9,9 @@ import net.minecraftforge.fml.event.IModBusEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
+/**
+ * 没用
+ */
 public class SWWeapons {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Soymilk_weapon.MODID);

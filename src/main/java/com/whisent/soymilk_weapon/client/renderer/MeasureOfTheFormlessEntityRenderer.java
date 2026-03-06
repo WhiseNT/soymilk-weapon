@@ -7,7 +7,9 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-
+/**
+ * 没用
+ */
 public class MeasureOfTheFormlessEntityRenderer  extends GeoEntityRenderer<MeasureOfTheFormlessEntity> {
     public MeasureOfTheFormlessEntityRenderer(EntityRendererProvider.Context context) {
         super(context, new MeasureOfTheFormlessEntityModel());

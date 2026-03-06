@@ -16,6 +16,9 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+/**
+ * 没用
+ */
 @Mod.EventBusSubscriber(modid = Soymilk_weapon.MODID, value = Dist.CLIENT)
 public class ImmobilityClientEvent {
 

@@ -31,7 +31,9 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
-
+/**
+ * 没用
+ */
 public class AbstractWeaponItem extends SwordItem implements GeoItem, SkillWeaponItem {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 

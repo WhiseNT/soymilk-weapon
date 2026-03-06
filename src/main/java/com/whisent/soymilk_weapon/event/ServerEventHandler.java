@@ -22,6 +22,9 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Soymilk_weapon.MODID,
         bus = Mod.EventBusSubscriber.Bus.FORGE)
+/**
+ * 没用
+ */
 public class ServerEventHandler {
     @SubscribeEvent
     public static void onBlockedHurt(LivingHurtEvent event) {

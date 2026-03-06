@@ -3,7 +3,9 @@ package com.whisent.soymilk_weapon.client;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-
+/**
+ * 没用。
+ */
 public class NonPausingScreen extends Screen {
     public NonPausingScreen() {
         super(Component.empty());

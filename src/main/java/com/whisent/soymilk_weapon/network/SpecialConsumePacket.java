@@ -8,7 +8,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
-
+/**
+ * 没用。
+ */
 public class SpecialConsumePacket {
     public void encode(FriendlyByteBuf buf) {
     }

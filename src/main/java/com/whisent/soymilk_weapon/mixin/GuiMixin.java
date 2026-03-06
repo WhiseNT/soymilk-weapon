@@ -14,7 +14,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Collection;
-
+/**
+ * 修改渲染的，有用。
+ */
 @Mixin(Gui.class)
 public class GuiMixin {
     

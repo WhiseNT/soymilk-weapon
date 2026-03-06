@@ -32,7 +32,9 @@ import software.bernie.geckolib.util.ClientUtils;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
-
+/**
+ * 没用
+ */
 public class MeasureOfTheFormlessItem extends AbstractWeaponItem {
 
     protected final String id = "measure_of_the_formless";

@@ -23,7 +23,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoItem;
-
+/**
+ * 没用
+ */
 public class SupremeArtSkill extends AbstractWeaponSkill{
 
 

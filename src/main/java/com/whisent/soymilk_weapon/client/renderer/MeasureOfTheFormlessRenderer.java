@@ -7,7 +7,9 @@ import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
-
+/**
+ * 没用
+ */
 public class MeasureOfTheFormlessRenderer  extends GeoItemRenderer<MeasureOfTheFormlessItem> {
     public MeasureOfTheFormlessRenderer() {
         super(new MeasureOfTheFormlessModel());
